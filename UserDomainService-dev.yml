@@ -13,16 +13,16 @@ spring:
     username: DEV_USER
     password: ankamma1
     driver-class-name: oracle.jdbc.driver.OracleDriver
-   
-    
-  jackson:
-    serialization:
-      WRITE_DATES_AS_TIMESTAMPS: false
+    tomcat:
+    connectionproperties:V$sessiom.program=${domain}_${spring.application.name}
   
   jpa:
     properties:
       hibernate:
-        dialeact:org.hibernate.dialect.Oracle12cDialect
-        show_sql:true
-        format_sql:true
-          
+      dialeact:org.hibernate.dialect.Oracle12cDialect
+          show_sql:true
+          format_sql:true
+  
+  jackson:
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
