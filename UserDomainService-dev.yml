@@ -13,15 +13,15 @@ spring:
     username: DEV_USER
     password: ankamma1
     driver-class-name: oracle.jdbc.driver.OracleDriver
-    tomcat:
-    connectionproperties:V$sessiom.program=${domain}_${spring.application.name}
-  
+    
+
   jpa:
     properties:
       hibernate:
-      dialeact:org.hibernate.dialect.Oracle12cDialect
-          show_sql:true
-          format_sql:true
+        dialect: org.hibernate.dialect.Oracle12cDialect
+        ddl-auto: update
+    show-sql: true
+       
   
   jackson:
     serialization:
