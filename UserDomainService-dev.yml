@@ -1,29 +1,23 @@
 eureka:
-  instance:
-    hostname: localhost
   client:
-    registerWithEureka: false
-    fetchRegistry: false
+    registerWithEureka: true
+    fetchRegistry: true
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
-
-
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+  
 spring:
   datasource:
     url: jdbc:oracle:thin:@localhost:1521:orcl
     username: DEV_USER
     password: ankamma1
     driver-class-name: oracle.jdbc.driver.OracleDriver
-    tomcat:
-    connectionproperties:V$sessiom.program=${domain}_${spring.application.name}
-  
+    
+
   jpa:
     properties:
       hibernate:
-      dialeact:org.hibernate.dialect.Oracle12cDialect
-          show_sql:true
-          format_sql:true
+        dialect: org.hibernate.dialect.Oracle12cDialect
+        ddl-auto: create,update
+    show-sql: true
+       
   
-  jackson:
-    serialization:
-      WRITE_DATES_AS_TIMESTAMPS: false
