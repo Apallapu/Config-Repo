@@ -27,7 +27,7 @@ zuul:
 
   routes:
     user-ui-service:
-        path: /users/**
+        path: /user-api**
         url: http://USERUISERVICE
         stripPrefix: false
         sensitiveHeaders:
