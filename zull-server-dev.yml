@@ -1,19 +1,22 @@
 eeureka:
-  instance:
-    hostname: localhost
-  client:
-    registerWithEureka: true 
-    fetchRegistry: true
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka
-      
+ logging:
+  level:
+    org.springframework.security: INFO
+
 hystrix:
   command:
     default:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 20000
+            timeoutInMilliseconds: 10000
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://registry:8761/eureka/
 
 ribbon:
   ReadTimeout: 20000
@@ -26,8 +29,8 @@ zuul:
     socket-timeout-millis: 20000
 
   routes:
-    user-ui-service:
-        path: /user-api**
+    USERUISERVICE:
+        path: /user-api/**
         url: http://USERUISERVICE
         stripPrefix: false
         sensitiveHeaders:
