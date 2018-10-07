@@ -1,22 +1,27 @@
-eureka: 
-  client: 
-    serviceUrl: 
-      defaultZone: "http://registry:8761/eureka/"
-  instance: 
-    prefer-ip-address: true
-hystrix: 
-  command: 
-    default: 
-      execution: 
-        isolation: 
-          thread: 
-            timeoutInMilliseconds: 10000
-ribbon: 
-  ConnectTimeout: 20000
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 20000
+ribbon:
   ReadTimeout: 20000
-zuul: 
-  prefix: /user-api
-  routes: 
-    user: 
+  ConnectTimeout: 20000
+  
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://registry:8761/eureka/
+zuul:
+  ignoredServices: '*'
+  host:
+    connect-timeout-millis: 20000
+    socket-timeout-millis: 20000
+  routes:
+    prefix: /user-api
+    account:
       path: /user/**
       serviceId: USERUISERVICE
