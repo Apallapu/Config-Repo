@@ -9,7 +9,7 @@ eeureka:
 
       
 
----
+
 spring:
   activemq:
      user: admin
