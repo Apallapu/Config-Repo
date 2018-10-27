@@ -20,3 +20,5 @@ eureka:
       
       
 userdomainserviceUrl: http://USERDOMAINSERVICE
+kafka.bootstrapAddress: localhost:9092
+message.topic.name: userRequestKafka
