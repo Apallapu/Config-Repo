@@ -18,11 +18,12 @@ spring:
     connectionproperties:V$sessiom.program=${domain}_${spring.application.name}
   
   jpa:
-    properties:
-      hibernate:
-      dialeact:org.hibernate.dialect.H2Dialect
-          show_sql:true
-          format_sql:true
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate.ddl-auto: create
+  hibernate:
+    hbm2ddl:
+      auto:update
+    show_sql:true
   
   jackson:
     serialization:
