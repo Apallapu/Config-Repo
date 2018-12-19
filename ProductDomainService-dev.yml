@@ -1,0 +1,29 @@
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1
+    username: sa
+    password: sa
+    driver-class-name: org.h2.Driver
+    tomcat:
+    connectionproperties:V$sessiom.program=${domain}_${spring.application.name}
+  
+  jpa:
+    properties:
+      hibernate:
+      dialeact:org.hibernate.dialect.H2Dialect
+          show_sql:true
+          format_sql:true
+  
+  jackson:
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
