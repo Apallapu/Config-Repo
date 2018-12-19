@@ -1,4 +1,4 @@
-eeureka:
+eureka:
   instance:
     hostname: localhost
   client:
